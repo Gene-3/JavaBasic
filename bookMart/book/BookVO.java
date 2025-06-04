@@ -1,24 +1,29 @@
 package book;
 
-public class BookVO {
+import java.io.Serializable;
+import java.util.Date;
+
+public class BookVO implements Serializable{
 	private int bookNo;
 	private String title;
 	private String author;
 	private String publisher;
 	private int price;
 	private int instock;
+	private Date regdate;
 	
-	public BookVO(int bookNo, String title, String author, String publisher, int price, int instock) {
+	public BookVO(int bookNo, String title, String author, String publisher, int price, int instock, Date regdate) {
 		this.bookNo = bookNo;
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
 		this.price = price;
 		this.instock = instock;
+		this.regdate = regdate;
 	}
 	
 	public BookVO(String title, String author, String publisher, int price, int instock) {
-		this(-1, title, author, publisher, price, instock);
+		this(-1, title, author, publisher, price, instock, null);
 	}
 	
 	
@@ -73,6 +78,16 @@ public class BookVO {
 	public void setInstock(int instock) {
 		this.instock = instock;
 	}
+
+
+	public Object getRegdate() {
+		
+		return regdate;
+	}
 	
+	public void setRegdate(Date date) {
+		this.regdate = regdate;
+		
+	}
 	
 }
